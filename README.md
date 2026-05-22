@@ -19,7 +19,7 @@ The frontend is built with **JavaScript**, **HTML**, and **CSS**, and uses Flask
 
 ## :open_file_folder: PROJECT FILE STRUCTURE
 ```bash
-LookForABook/
+look-for-a-book/
 │── app/
 │   ├── main.py            # Launches Flask backend, fetches data from Google Books API, and renders frontend for display
 │   ├── static/
@@ -35,12 +35,12 @@ LookForABook/
 ## :hammer: CONFIGURATION
 **1. Clone the repository**
 ```bash
-git clone https://github.com/ashneetrathore/LookForABook.git
+git clone https://github.com/ashneetrathore/look-for-a-book.git
 ```
 
 **2. Install dependencies**
 ```bash
-cd LookForABook
+cd look-for-a-book
 pip install -r requirements.txt
 ```
 
