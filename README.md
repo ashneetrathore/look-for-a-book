@@ -16,7 +16,6 @@ Look For A Book is a full-stack web application for searching books by title and
 The backend is implemented in **Python** using **Flask**, which defines two routes - `/` for the home page and `/search` for queries. The frontend uses **JavaScript**, **HTML**, **CSS**, and **Jinja2** templating for server-side rendering.
 
 Flow of a search query:
-
 - JavaScript captures user input and redirects it to the `/search` route
 - Flask receives the request and fetches data from the **Google Books API**
 - Flask processes data into a structured format and passes it to Jinja2
