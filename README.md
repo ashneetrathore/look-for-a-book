@@ -5,7 +5,7 @@ Date: November 2021\
 Developer(s): Ashneet Rathore, Michelle Prasouvo, Henry Reyes\
 Mentored by Aaron Chen
 
-Look For A Book is a full-stack web application that allows users to search for books by title and view key details, such as cover image, synopsis, and author. The app was developed in a 12-hour time span as a submission for the ZotHacks beginner-friendly hackathon hosted at UCI.
+Look For A Book is a full-stack web application for searching books by title and viewing key details such as cover image, synopsis, and author. The app was developed in a 12-hour time span as a submission for the ZotHacks beginner-friendly hackathon hosted at UCI.
 
 **Tech Stack** | Python, Flask, JavaScript, Google Books API, HTML, CSS, Heroku
 
@@ -13,23 +13,31 @@ Look For A Book is a full-stack web application that allows users to search for 
 ![Demo](demo.gif)
 
 ## :classical_building: ARCHITECTURE
-The application backend is implemented in **Python** using the **Flask** framework. Flask defines URL routes (`/` for the home page and `/search` for queries) and handles user search requests. When a query is submitted, Flask receives it via the appropriate route, fetches book data from the **Google Books API**, and processes the relevant details (title, author, synopsis, cover image, rating on Google Books, page count, and publication date) into a structured format.
+The backend is implemented in **Python** using **Flask**, which defines two routes - `/` for the home page and `/search` for queries. The frontend uses **JavaScript**, **HTML**, **CSS**, and **Jinja2** templating for server-side rendering.
 
-The frontend is built with **JavaScript**, **HTML**, and **CSS**, and uses Flask with **Jinja2 templating** to render dynamic content. First, JavaScript handles the submission of the search query by capturing user input and redirecting the browser to the `/search` route. After Flask processes the data, it passes the structured results to Jinja2, which dynamically injects it into the HTML template. This **server-side rendering** ensures that the fully rendered page with the search results is delivered to the browser for immediate display, without requiring additional requests. The app was originally deployed on **Heroku** during the hackathon event, but it is no longer live - it can be run locally instead.
+The following illustrates the flow of a search query:
+
+- JavaScript captures user input and redirects it to the `/search` route
+- Flask receives the request and fetches data from the **Google Books API**
+- Flask processes data into a structured format and passes it to Jinja2
+- Jinja2 injects the data into a HTML template and delivers the fully rendered page to the browser
+
+The app was originally deployed on **Heroku** during the hackathon, but is now only available to run locally.
 
 ## :open_file_folder: PROJECT FILE STRUCTURE
 ```bash
 look-for-a-book/
 │── app/
-│   ├── main.py            # Launches Flask backend, fetches data from Google Books API, and renders frontend for display
+│   ├── main.py            # Flask backend and Google Books API integration
 │   ├── static/
-│   │   │── searchbar.js   # Processes input and sends query to backend
-│   │   └── mainpage.css   # Styles the webpage appearance
+│   │   │── searchbar.js   # Search input and query handling
+│   │   └── mainpage.css   # Webpage styles
 │   └── templates/         
-│       └── index.html     # Renders the Flask frontend
-│── requirements.txt       # Contains external dependencies
-│── .gitignore             # Excludes files and folders from version control
-└── demo.gif               # GIF showing the book searching demo
+│       └── index.html     # Flask frontend interface
+│── requirements.txt       # External dependencies
+│── README.md              # Project documentation
+│── .gitignore             # Ignored files
+└── demo.gif               # Demo GIF
 ```
 
 ## :hammer: CONFIGURATION
@@ -45,14 +53,13 @@ pip install -r requirements.txt
 ```
 
 ## :rocket: EXECUTION
-Launch a local Flask web server
 ```bash
 cd app
 python3 main.py
 ```
 
-Open [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser to use the book searcher.
+Open [http://127.0.0.1:5000](http://127.0.0.1:5000) to use the book searcher.
 
 ## :wrench: TRY IT OUT
-1. After opening the application in your browser, enter the title of a book into the search bar and click the search icon or press `Enter`.
+1. Enter the title of a book into the search bar and click the search icon.
 2. Books matching the inputted title will be displayed. Multiple entries may appear for the same title due to different editions or volumes.
